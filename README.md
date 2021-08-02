@@ -45,13 +45,14 @@ vim.g.project_dirs ={
   "~/.config",
   "~/.config/nvim",
 }
-
-coroutine.wrap(function()
-  local choice = require "fzf".fzf(vim.g.project_dirs)
-  if choice then
-    require('fzf-lua').files({ cwd = choice[1] })
-  end
-end)()
+function fzf_projectionist()
+  coroutine.wrap(function()
+    local choice = require "fzf".fzf(vim.g.project_dirs)
+    if choice then
+      require('fzf-lua').files({ cwd = choice[1] })
+    end
+  end)()
+end
 ```
 
 ## Dotfiles
