@@ -8,7 +8,10 @@ local codex = M
 --  VAULT  : Core Configuration
 
     codex.core= {
-      --  NOTE  : used in nvim-fzf
+      --  NOTE  : used in nvim-fzf, this part is where you specify
+      --          your directories, if you have your own config file
+      --          you can specify this like on README.md by using
+      --          global variables!
       project_dirs = {
         '~/.config',                  -- Dots
         '~/.config/nvim',             -- Neovim Config
