@@ -117,7 +117,8 @@ function fzf_wallpaper()
     -- since you'll be using fd for creating functions anyway.
     local choice = fzf.fzf("fd . ~/Pictures -e png -e jpg")
     if choice then
-      vim.cmd('silent !feh --bg-fill ' .. choice[1]) -- use feh to change wallpaper bts
+      -- use shell [!] command feh to change wallpaper behind the scenes 
+      vim.cmd('silent !feh --bg-fill ' .. choice[1])
     end
   end)()
 end
