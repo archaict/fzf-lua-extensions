@@ -111,10 +111,10 @@ You can swap feh with nitrogen or any other command that you like!
 function fzf_wallpaper()
   coroutine.wrap(function()
     local fzf = require("fzf")
-    -- specify folder, it can be changed as you wish, it is
-    -- also possible change it like choice = 'dirs', but
-    -- it is easier to understand this way, since you'll be
-    -- using fd for creating functions anyway.
+    -- specify folder, it can be changed as you wish,
+    -- it is also possible change it like choice = 'dirs',
+    -- but it is easier to understand this way
+    -- since you'll be using fd for creating functions anyway.
     local choice = fzf.fzf("fd . ~/Pictures -e png -e jpg")
     if choice then
       vim.cmd('silent !feh --bg-fill ' .. choice[1]) -- use feh to change wallpaper bts
