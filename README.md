@@ -36,6 +36,23 @@ function fzf_projectionist()
   end)()
 end
 ```
+Or if you want global variable, you can create this:
+```lua
+-- you can put vim.g.project_dirs anywhere in your config file
+-- since it will be called as global variable!
+
+vim.g.project_dirs ={
+  "~/.config",
+  "~/.config/nvim",
+}
+
+coroutine.wrap(function()
+  local choice = require "fzf".fzf(vim.g.project_dirs)
+  if choice then
+    require('fzf-lua').files({ cwd = choice[1] })
+  end
+end)()
+```
 
 ## Dotfiles
 Searching your dotfiles? here!
