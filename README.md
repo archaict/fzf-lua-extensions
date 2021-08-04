@@ -123,8 +123,8 @@ function fzf_wallpaper()
   end)()
 end
 ```
-This one need `termpix` which can be downloaded [here](https://github.com/mmacedoeu/termpix),
-the original doesn't work on mine, you might want to use (this one)[https://github.com/hopey-dishwasher/termpix] if it's working for you.
+This one need `termpix` which can be downloaded [here (it is forked)](https://github.com/mmacedoeu/termpix),
+the original doesn't work on mine, you might want to use [this one](https://github.com/hopey-dishwasher/termpix) if it's working for you.
 See their github page for installation.
 ```lua
 function fzf_wallpaper()
