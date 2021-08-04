@@ -127,11 +127,12 @@ This one need `termpix` which can be downloaded [here (it is forked)](https://gi
 the original doesn't work on mine, you might want to use [this one](https://github.com/hopey-dishwasher/termpix) if it's working for you.
 See their github page for installation.
 ```lua
-function fzf_wallpaper()
+function fzf_wallpaper() -- Poor Man Wallpaper Changer (with preview)
   local fzf = require("fzf").fzf
   local action = require "fzf.actions".action
   coroutine.wrap(function()
-    local choice = fzf('fd . ~/Pictures -e png -e jpg', [[--preview "((termpix --width 70 --true-colour {} > /tmp/termpixdump && cat /tmp/termpixdump) || bat {})"]])
+    local choice = fzf('fd . ~/Pictures -e png -e jpg',
+      [[--preview "((termpix --width 70 --true-colour {} > /tmp/termpixdump && cat /tmp/termpixdump) || bat {})"]])
     if choice then
       vim.cmd('silent !feh --bg-fill ' .. choice[1])
     end
