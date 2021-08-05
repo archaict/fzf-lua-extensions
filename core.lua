@@ -19,6 +19,11 @@ local codex = M
         '~/Dropbox/neorg',            -- Neorg
         '~/Dropbox/vault',            -- OrgMode
       }
+    
+    codex.directories = {
+        pictures = '~/Pictures',
+    },
+    
 
     } --------------------------------------------------------------- [ KM ] ---
 
