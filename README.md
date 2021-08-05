@@ -127,7 +127,7 @@ This one need `termpix` which can be downloaded [here (it is forked)](https://gi
 the original doesn't work on mine, you might want to use [this one](https://github.com/hopey-dishwasher/termpix) if it's working for you.
 See their github page for installation.
 ```lua
-function fzf_wallpaper() -- Poor Man Wallpaper Changer (with preview)
+function fzf_wallpaper() -- Poor Man Wallpaper Changer (with preview) using fzf!
   local fzf = require("fzf").fzf
   local action = require "fzf.actions".action
   coroutine.wrap(function()
