@@ -138,6 +138,35 @@ function fzf_wallpaper() -- Poor Man Wallpaper Changer (with preview)
     end
   end)()
 end
+
+-- With the new update on fzf lua, you can write it like this!
+previewers = {
+  termpix = {
+      cmd             = "termpix",
+      args            = "",
+      _new            = function() return require 'fzf-lua.previewer'.cmd_async end,
+  },
+},
+
+-- and create a function like this
+
+function fzf_pictures()
+  local action = require "fzf.actions".action
+  local choice = require('fzf-lua').files({
+    -- directory
+    cwd       = "~/Pictures", 
+    -- or if you have other configuration,
+    -- you can specify like
+    -- require'core'.directories.picture
+    
+    prompt    = 'Wallpaper » ',
+    previewer = "termpix",
+    actions = {
+      ["default"]  = function(selected) vim.cmd('silent !feh --bg-fill ' .. selected[2]) end
+    }
+  })
+end
+
 ```
 And this one is using this to automatically pick your wallpaper, I didn't save your default bg as default, so you might want to consider manual approach.
 ```lua
