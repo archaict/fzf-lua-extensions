@@ -19,6 +19,36 @@ function fzf_projectionist()
     end
   end)()
 end
+
+-- or using this, which will loop directories with previews
+
+function fzf_projectionist()
+  local dirs = require'core'.directories
+
+  local project_dirs = {
+  -- vim.fn.expand is used to get full path, otherwise ls
+  -- will treat each as strings, which is not possible
+    vim.fn.expand'~/.config',                  -- Dots
+    vim.fn.expand'~/.config/nvim',             -- Neovim Config
+  -- or you can write it like this to use without expanding
+    '/home/user/.config',
+    '/home/user/.config/nvim'
+  }
+-- help wanted, if there's a possible loop for above case please tell me
+  local action = require "fzf.actions".action
+  coroutine.wrap(function()
+    local choice = require "fzf".fzf(  project_dirs , '--preview="ls -la {}"')
+
+    if choice then
+      require('fzf-lua').files({
+        prompt  = 'Project » ',
+        cwd = choice[1];
+      })
+      vim.cmd('chdir' .. choice[1])
+    end
+  end)()
+end
+
 ```
 Or if you're like me and have your own config file, you can run it like this:
 ```lua
