@@ -151,8 +151,7 @@ previewers = {
 -- and create a function like this
 
 function fzf_pictures()
-  local action = require "fzf.actions".action
-  local choice = require('fzf-lua').files({
+  require('fzf-lua').files({
     -- directory
     cwd       = "~/Pictures", 
     -- or if you have other configuration,
